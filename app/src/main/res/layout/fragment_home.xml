@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#121212">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:paddingHorizontal="16dp">
+        <ImageView
+            android:id="@+id/iv_menu"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_centerVertical="true"
+            android:src="@android:drawable/ic_menu_sort_by_size"
+            app:tint="#FFFFFF" />
+        <ImageView
+            android:id="@+id/iv_search"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:src="@android:drawable/ic_menu_search"
+            app:tint="#FFFFFF" />
+    </RelativeLayout>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_home_category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#121212"
+        app:tabTextColor="#888888"
+        app:tabSelectedTextColor="#FFFFFF"
+        app:tabIndicatorColor="#FFFFFF">
+        <com.google.android.material.tabs.TabItem android:text="推荐" />
+        <com.google.android.material.tabs.TabItem android:text="音乐" />
+        <com.google.android.material.tabs.TabItem android:text="电台" />
+    </com.google.android.material.tabs.TabLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="80dp">
+
+            <LinearLayout
+                android:id="@+id/layout_recommend"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+                <TextView android:text="每日推荐" android:textColor="#FFF" android:textSize="18sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="16dp" android:textStyle="bold"/>
+                <androidx.recyclerview.widget.RecyclerView android:id="@+id/rv_recommend_playlists" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingHorizontal="16dp" clipToPadding="false"/>
+                <TextView android:text="每日推歌" android:textColor="#FFF" android:textSize="18sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="16dp" android:textStyle="bold"/>
+                <androidx.recyclerview.widget.RecyclerView android:id="@+id/rv_recommend_songs" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingHorizontal="16dp" clipToPadding="false"/>
+                <TextView android:text="推荐新音乐" android:textColor="#FFF" android:textSize="18sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="16dp" android:textStyle="bold"/>
+                <androidx.recyclerview.widget.RecyclerView android:id="@+id/rv_recommend_new" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingHorizontal="16dp" clipToPadding="false"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_music"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <androidx.viewpager2.widget.ViewPager2 android:id="@+id/vp_banner" android:layout_width="match_parent" android:layout_height="160dp" android:layout_margin="16dp" />
+                <TextView android:text="甄选歌单" android:textColor="#FFF" android:textSize="18sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginHorizontal="16dp" android:layout_marginBottom="16dp" android:textStyle="bold"/>
+                <androidx.recyclerview.widget.RecyclerView android:id="@+id/rv_music_playlists" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingHorizontal="16dp" clipToPadding="false"/>
+                <TextView android:text="精品歌单" android:textColor="#FFF" android:textSize="18sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="16dp" android:textStyle="bold"/>
+                <androidx.recyclerview.widget.RecyclerView android:id="@+id/rv_music_albums" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingHorizontal="16dp" clipToPadding="false"/>
+                <TextView android:text="热门歌手" android:textColor="#FFF" android:textSize="18sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="16dp" android:textStyle="bold"/>
+                <androidx.recyclerview.widget.RecyclerView android:id="@+id/rv_music_artists" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingHorizontal="16dp" clipToPadding="false"/>
+                <TextView android:text="排行榜" android:textColor="#FFF" android:textSize="18sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="16dp" android:textStyle="bold"/>
+                <androidx.recyclerview.widget.RecyclerView android:id="@+id/rv_music_toplist" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingHorizontal="16dp" clipToPadding="false"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_radio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+                <androidx.viewpager2.widget.ViewPager2 android:id="@+id/vp_radio_banner" android:layout_width="match_parent" android:layout_height="160dp" android:layout_margin="16dp" />
+                <TextView android:text="今日优选" android:textColor="#FFF" android:textSize="18sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginHorizontal="16dp" android:layout_marginBottom="16dp" android:textStyle="bold"/>
+                <androidx.recyclerview.widget.RecyclerView android:id="@+id/rv_radio_today" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingHorizontal="16dp" clipToPadding="false"/>
+                <TextView android:text="个性推荐" android:textColor="#FFF" android:textSize="18sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="16dp" android:textStyle="bold"/>
+                <androidx.recyclerview.widget.RecyclerView android:id="@+id/rv_radio_recommend" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingHorizontal="16dp" clipToPadding="false"/>
+                <TextView android:text="热门电台" android:textColor="#FFF" android:textSize="18sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="16dp" android:textStyle="bold"/>
+                <androidx.recyclerview.widget.RecyclerView android:id="@+id/rv_radio_hot" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingHorizontal="16dp" clipToPadding="false"/>
+                <TextView android:text="付费精品" android:textColor="#FFF" android:textSize="18sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="16dp" android:textStyle="bold"/>
+                <androidx.recyclerview.widget.RecyclerView android:id="@+id/rv_radio_pay" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingHorizontal="16dp" clipToPadding="false"/>
+                <TextView android:text="24小时节目榜" android:textColor="#FFF" android:textSize="18sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="16dp" android:textStyle="bold"/>
+                <androidx.recyclerview.widget.RecyclerView android:id="@+id/rv_radio_24h" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingHorizontal="16dp" clipToPadding="false"/>
+                <TextView android:text="主播新人榜" android:textColor="#FFF" android:textSize="18sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="16dp" android:textStyle="bold"/>
+                <androidx.recyclerview.widget.RecyclerView android:id="@+id/rv_radio_newcomer" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingHorizontal="16dp" clipToPadding="false"/>
+            </LinearLayout>
+
+        </FrameLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>
